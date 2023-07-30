@@ -1,0 +1,20 @@
+{
+  "name": "api-server",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/api-server/src",
+  "projectType": "library",
+  "targets": {
+    "generate-sources": {
+      "executor": "@trumbitta/nx-plugin-openapi:generate-api-lib-sources",
+      "options": {
+        "useDockerBuild": false,
+        "generator": "nodejs-express-server",
+        "sourceSpecPathOrUrl": "libs/api-spec/src/api-spec.openapi.yml",
+        "additionalProperties": "typescriptThreePlus=true,supportsES6=true",
+        "globalProperties": ""
+      }
+    }
+  },
+  "implicitDependencies": ["api-spec"],
+  "tags": []
+}
